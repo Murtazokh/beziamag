@@ -4,7 +4,7 @@ from .models import Profile
 class ProfileAdmin(admin.ModelAdmin):
     # This is where you can add customizations for the list display,
     # list filters, search fields, etc., of the Profile model in the admin page.
-    list_display = ('user', 'bio', 'other_fields')
+    list_display = ('user', 'bio')
     list_filter = ('user',)
     search_fields = ('user__username', 'user__email', 'bio')
     # If your Profile model has many fields, you might want to consider adding fieldsets

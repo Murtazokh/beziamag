@@ -6,8 +6,9 @@ from django.dispatch import receiver
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile')
+    name = models.CharField(_("name"), blank=True, null=True, max_length=150)
     bio = models.TextField(_("bio"), blank=True)
-    name = models.TextField(_("name"), blank=True, null=True)
+
 
     # You can add additional fields here, such as:
     # - website

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     
     # Custom apps
     'users.apps.UsersConfig',
+    'profiles.apps.ProfilesConfig',
     'products.apps.ProductsConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',

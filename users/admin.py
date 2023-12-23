@@ -4,6 +4,7 @@ from .models import CustomUser
 
 @admin.register(CustomUser)
 class CustomUserAdmin(UserAdmin):
+    readonly_fields = ('date_joined',)
     # Extend the UserAdmin to include the additional fields
     fieldsets = UserAdmin.fieldsets + (
         (None, {'fields': ('phone_number', 'address')}),
