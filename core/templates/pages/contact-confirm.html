@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Confirmation{% endblock %}
+
+{% block content %}
+  <div class="contact-confirmation">
+    <h1>Thank You for Reaching Out!</h1>
+    <p>Your message has been successfully sent. We appreciate you taking the time to contact us.</p>
+    <p>We will review your message and get back to you as soon as possible. If your inquiry is urgent, please use the telephone number listed on our site to talk to one of our staff members directly.</p>
+    <p>Meanwhile, feel free to continue browsing through our <a href="{% url 'core:home' %}">home page</a> or check out our latest <a href="{% url 'products:product_list' %}">products</a>.</p>
+    <div class="contact-confirmation-actions">
+      <!-- Provide buttons or links for other actions the user may take -->
+      <a href="{% url 'core:home' %}" class="button">Return to Home</a>
+      <a href="{% url 'core:about' %}" class="button">Learn More About Us</a>
+    </div>
+  </div>
+{% endblock %}

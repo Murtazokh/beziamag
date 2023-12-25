@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Beziamag - Your Trusted Source for Auto Details{% endblock %}
+
+{% block content %}
+<div class="homepage-banner">
+  <div class="banner-content">
+    <h1>Welcome to Beziamag</h1>
+    <p>Your one-stop shop for all auto part needs.</p>
+    <a href="{% url 'products:product_list' %}" class="btn btn-primary">Shop Now</a>
+  </div>
+</div>
+
+<section class="featured-products">
+  <div class="container">
+    <h2>Featured Products</h2>
+    <div class="products-grid">
+      <!-- Dynamically load featured products here -->
+    </div>
+  </div>
+</section>
+
+<section class="about-us">
+  <div class="container">
+    <h2>About Beziamag</h2>
+    <p>We are passionate about cars and understand the importance of quality auto parts. Whether you are looking for performance-enhancing components or aesthetic upgrades, we have it all.</p>
+    <a href="{% url 'core:about' %}" class="btn btn-secondary">Learn More</a>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <h2>Customer Testimonials</h2>
+    <div class="testimonial-slider">
+      <!-- Dynamically load testimonials here -->
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

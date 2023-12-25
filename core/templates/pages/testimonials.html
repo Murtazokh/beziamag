@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for testimonial in testimonials %}
+  <div class="testimonial">
+    <blockquote>{{ testimonial.content }}</blockquote>
+    <footer>{{ testimonial.author }}, {{ testimonial.role }}</footer>
+  </div>
+{% endfor %}
+{% endblock %}

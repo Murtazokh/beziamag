@@ -1,0 +1,16 @@
+{% load static %}
+<!-- navbar.html -->
+<nav class="navbar">
+    <!-- Container to align navbar content -->
+    <div class="container">
+      <a href="" class="navbar-brand">
+        <img class="logo" src="{% static '/img/PNG/logo 3.png' %}" alt="Beziamag Logo">
+      </a>
+      <ul class="navbar-nav">
+        <!-- Navbar items -->
+        <li><a href="{% url 'products:product_list' %}">Products</a></li>
+        <!-- More navbar items -->
+      </ul>
+      <!-- Other navigation items such as search, account link, cart icon can be added here -->
+    </div>
+  </nav>

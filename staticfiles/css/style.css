@@ -1,0 +1,27 @@
+body, h1, h2, h3, h4, h5, h6 {
+font-family: 'Poppins', sans-serif;
+}
+
+p, a, li, button { /* Secondary Typography */
+font-family: 'Montserrat', sans-serif;
+}
+
+.navbar, .footer {
+background-color: #141414; /* Black */
+color: #FFFFFF; /* White */
+}
+
+.header {
+background-color: #281f9b; /* Blue */
+color: #FFFFFF; /* White */
+}
+
+.footer a {
+color: #FFFFFF; /* White */
+text-decoration: none;
+}
+
+.logo {
+    width: 400px;  /* or any other size */
+    height: auto;
+}

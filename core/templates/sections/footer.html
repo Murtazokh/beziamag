@@ -1,0 +1,21 @@
+<!-- footer.html -->
+<footer class="footer">
+    <div class="container">
+      <!-- Footer Links Section -->
+      <div class="footer-links">
+        <a href="{% url 'core:about' %}">About Us</a>
+        <a href="{% url 'core:contact' %}">Contact</a>
+        <!-- More footer links -->
+      </div>
+      <!-- Footer Credits Section -->
+      <div class="footer-credits">
+        <p>&copy; {{ current_year }} Beziamag. All Rights Reserved.</p>
+        <!-- Social media icons & other business-related info can be inserted here -->
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    var current_year = new Date().getFullYear();
+    document.querySelector('.footer-credits p').innerHTML = "&copy; " + current_year + " Beziamag. All Rights Reserved.";
+  </script>

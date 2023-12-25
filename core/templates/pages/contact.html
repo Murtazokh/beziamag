@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Your content goes here -->
+
+<form method="post" action="{% url 'core:contact' %}">
+  {% csrf_token %}
+  <!-- form fields -->
+  <input type="text" name="name" placeholder="Your Name">
+  <input type="email" name="email" placeholder="Your Email">
+  <input type="text" name="subject" placeholder="Subject">
+  <textarea name="message" placeholder="Your Message"></textarea>
+  <button type="submit">Send</button>
+</form>
+
+{% endblock %}
