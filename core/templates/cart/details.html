@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Your Shopping Cart</h1>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for item in cart %}
+            <tr>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>${{ item.price }}</td>
+            <td>${{ item.total_price }}</td>
+            <td>
+                <a href="{% url 'cart:cart_remove' item.product.id %}" class="btn btn-danger">
+                <i class="bi bi-trash"></i> Remove
+                </a>
+            </td>
+            </tr>
+            <tr>
+                <td>
+                <form action="{% url 'cart:cart_update' item.product.id %}" method="post">
+                    {% csrf_token %}
+                    {{ item.update_quantity_form.quantity }}
+                    {{ item.update_quantity_form.update }}
+                    <button type="submit" class="btn btn-secondary btn-sm">Update</button>
+                </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  
+  <div class="d-flex justify-content-between align-items-center">
+    <a href="{% url 'products:product_list' %}" class="btn btn-outline-secondary">
+      Continue Shopping
+    </a>
+    <p class="total">Total: ${{ cart.get_total_price }}</p>
+    <a href="{% url 'orders:order_create' %}" class="btn btn-primary">
+      Proceed to checkout
+    </a>
+  </div>
+
+</div>
+{% endblock %}

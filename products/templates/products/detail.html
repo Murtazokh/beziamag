@@ -1,15 +1,52 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load beziamag_tags %}
 
 {% block title %}{{ product.name }}{% endblock %}
 
 {% block content %}
-    <div id="product-detail-app">
-        <!-- This is where your product detail will go -->
-        <h1>{{ product.name }}</h1>
-        <p>{{ product.description }}</p>
-        <p>Price: {{ product.price }}</p>
-        <!-- More product details can be added here -->
+  <main id="product-detail-app" class="main-content">
+    <div  class="product-page">
+      <div class="product-page__container container">
+        <!-- PRODUCT GALLERY -->
+        <div class="product-page__gallery">
+            <!-- IMAGE SHOWCASE -->
+            <div class="image-showcase">
+                <!-- Image Showcase Controller Button [for mobile responsive] -->
+                <!-- Lightbox Toggle Button -->
+                <button class="image-showcase__lightbox-toggle js-lightbox-toggler" type="button" aria-label="Open Image Gallery"></button>
+                <img class="image-showcase__img image-showcase__img--mobile" src="{% get_image_url product.image %}" alt="{{ product.name }}" width="445" height="445">
+            </div>
+        </div>
+        <!-- PRODUCT INFO  -->
+        <div class="product-page__info">
+          <div class="product-info">
+            <h1 class="product-info__title">{{ product.name }}</h1>
+            <p class="product-info__description">{{ product.description }}</p>
 
-        <!-- A Vue instance could be used here for more interactivity, such as a cart add button -->
+            <!-- * * PRICE * * -->
+            <div class="product-info__price-wrapper">
+              <b class="product-info__price">${{ product.price }}</b>
+            </div>
+
+            <!-- */ Shopping Cart Actions \* -->
+            <div class="product-page__cart-actions">
+              <div class="product-info__quantity-wrapper">
+                <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                  {% csrf_token %}
+                  <input type="number" name="quantity" value="1" min="1" max="99" class="form-control">
+                  <button type="submit" class="btn btn-primary btn-lg">Add to Cart</button>
+                </form>
+              </div>
+
+              <!-- Continue Shopping Button -->
+              <a href="{% url 'products:product_list' %}" class="btn btn-outline-secondary mt-3">&laquo; Continue Shopping</a>
+              <!-- Proceed to Checkout Button -->
+              <a href="{% url 'cart:cart_detail' %}" class="btn btn-warning mt-3">Checkout &raquo;</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </main>
 {% endblock %}

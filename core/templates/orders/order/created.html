@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2 class="mb-3">Thank you for your order!</h2>
+    <p>Your order has been successfully placed. Order ID is {{ order.id }}.</p>
+    <p>An email confirmation has been sent to {{ order.email }}.</p>
+    
+    <div class="alert alert-info mt-3">
+      <p><strong>Order Information:</strong></p>
+      <p>Name: {{ order.first_name }} {{ order.last_name }}</p>
+      <p>Email: {{ order.email }}</p>
+      <p>Address: {{ order.address }}, {{ order.city }} - {{ order.postal_code }}</p>
+    </div>
+
+    <a href="{% url 'core:home' %}" class="btn btn-primary mt-3">Continue Shopping</a>
+  </div>
+{% endblock %}
