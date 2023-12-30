@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     # Third-party packages
     'jazzmin',
 
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -81,6 +82,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'beziamag.wsgi.application'
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',  # Use the permission class you prefer
+    ],
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
