@@ -38,6 +38,37 @@
                   <button type="submit" class="btn btn-primary btn-lg">Add to Cart</button>
                 </form>
               </div>
+            <!-- */ Reviews \* -->
+            <div class="product-info__reviews">
+              <h3>Customer Reviews:</h3>
+              <ul>
+                  {% for review in reviews %}
+                      <li class="review">
+                          <strong>{{ review.author.username }}:</strong><em>"{{ review.content }}"</em> - Rating: {{ review.rating }}/5
+                      </li>
+                  {% empty %}
+                      <li>No reviews yet.</li>
+                  {% endfor %}
+              </ul>
+          </div>
+          <form method="post" action="{% url 'add_review' product.id %}">
+            {% csrf_token %}
+            <!-- The form structure -->
+            <div>
+                <label for="content">Review:</label>
+                <textarea id="content" name="content"></textarea>
+            </div>
+            <div>
+                <label for="rating">Rating:</label>
+                <select id="rating" name="rating">
+                    <!-- Generate rating options -->
+                    {% for i in "12345" %}
+                    <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit">Submit Review</button>
+        </form>
 
               <!-- Continue Shopping Button -->
               <a href="{% url 'products:product_list' %}" class="btn btn-outline-secondary mt-3">&laquo; Continue Shopping</a>
