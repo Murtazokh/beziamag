@@ -1,16 +1,59 @@
 {% extends 'base.html' %}
+{% url 'core:contact' %}
+{% block title %}Beziamag - Contact us{% endblock %}
 
 {% block content %}
-<!-- Your content goes here -->
-
-<form method="post" action="{% url 'core:contact' %}">
-  {% csrf_token %}
-  <!-- form fields -->
-  <input type="text" name="name" placeholder="Your Name">
-  <input type="email" name="email" placeholder="Your Email">
-  <input type="text" name="subject" placeholder="Subject">
-  <textarea name="message" placeholder="Your Message"></textarea>
-  <button type="submit">Send</button>
-</form>
+{% include 'sections/header.html' %}
+<!-- MAIN CONTENT  -->
+<main class="main-content">
+  <div class="container">
+  
+  
+    <div class="contact-page">
+      <h1 class="contact-page-heading">Contact us</h1>
+  
+      <div class="contact-page-content">
+        <form class="contact-page-form form" action="{% url 'core:contact' %}" method="POST">
+          {% csrf_token %}
+          <div class="form-fields">
+            <div class="form-groups-wrapper">
+              <div class="form-group">
+                <input class="form-field" type="text" name="name" placeholder="Name" aria-label="Name" required>
+              </div>
+              <div class="form-group">
+                <input class="form-field" type="tel" name="phone_number" placeholder="Phone number" aria-label="Phone number" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <input class="form-field" type="email" name="email" placeholder="Email" aria-label="email" required>
+            </div>
+            <div class="form-group">
+              <textarea class="form-field form-field-textarea" name="message" placeholder="Your message" aria-label="text" required></textarea>
+            </div>
+          </div>
+          <button class="contact-page-form-submit btn" type="submit">Send</button>
+        </form>
+  
+        <div class="contact-page-info">
+          <dl class="contact-page-definitions-card definitions-card">
+            <div class="definitions-card-item">
+              <dt class="definitions-card-title">Email address</dt>
+              <dd class="definitions-card-value"><a href="#">beziamag24@gmail.com</a></dd>
+            </div>
+            <div class="definitions-card-item">
+              <dt class="definitions-card-title">Phone number</dt>
+              <dd class="definitions-card-value"><a href="tel:+998885225476">+998 88 ***-**-**</a></dd>
+            </div>
+            <div class="definitions-card-item">
+              <dt class="definitions-card-title">Location</dt>
+              <dd class="definitions-card-value">Kharshi, Street Mustakillik, 6</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  </main>
 
 {% endblock %}

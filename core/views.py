@@ -1,16 +1,21 @@
 from django.shortcuts import render, redirect
-from .models import Contact, About, Testimonial
 from django.core.mail import send_mail
 from django.conf import settings
 
-from django.shortcuts import render
-from .models import About, Testimonial
+from .models import Contact, About, Testimonial
+from products.models import Product
+
 
 def home(request):
-    return render(request, 'pages/homepage.html')
+    featured_products = Product.objects.filter(featured=True)
+    context = {
+        'featured_products': featured_products
+    }
+
+    return render(request, 'pages/homepage.html', context)
 
 def about(request):
-    about_content = About.objects.first()  # Assuming you only have one about instance
+    about_content = About.objects.first()  
     return render(request, 'pages/about.html', {'about': about_content})
 
 def testimonials(request):
@@ -23,7 +28,7 @@ def contact(request):
         contact_data = Contact(
             name=request.POST.get('name'),
             email=request.POST.get('email'),
-            subject=request.POST.get('subject'),
+            phone_number=request.POST.get('phone_number'),
             message=request.POST.get('message')
         )
         contact_data.save()

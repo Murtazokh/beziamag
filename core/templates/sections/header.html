@@ -7,10 +7,10 @@
 
     <nav class="sitenav">
       <ul class="sitenav__list">
-        <li class="sitenav__item"><a class="sitenav__link" href="#" >home</a></li>
-        <li class="sitenav__item"><a class="sitenav__link" href="#products" >products</a></li>
-        <li class="sitenav__item"><a class="sitenav__link" href="#" >about us</a></li>
-        <li class="sitenav__item"><a class="sitenav__link" href="#" >contacts</a></li>
+        <li class="sitenav__item"><a class="sitenav__link" href="{% url 'core:home' %}" >home</a></li>
+        <li class="sitenav__item"><a class="sitenav__link" href="{% url 'products:product_list' %}" >products</a></li>
+        <li class="sitenav__item"><a class="sitenav__link" href="{% url 'core:about' %}" >about us</a></li>
+        <li class="sitenav__item"><a class="sitenav__link" href="{% url 'core:contact' %}" >contact</a></li>
       </ul>
 
 
