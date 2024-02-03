@@ -6,24 +6,97 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Beziamag{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/vue@next"></script>
-    <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css" />
-    <script src="https://unpkg.com/element-plus"></script>
+
+    <link rel="icon" href="{% static 'img/favicon.ico'}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" >
 </head>
 <body>
-    {% include 'sections/navbar.html' %}
-    <div id="app">
-      {% include 'sections/header.html' %}
-      
+
+
       {% block content %}
       {% endblock content %}
-      
+
       {% include 'sections/footer.html' %}
-    </div>
+      <!-- ==== MODALS ==== -->
+      <!-- /// modal SIGN UP \\\ -->
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog d-flex justify-content-center">
+          <div class="modal-content w-75">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel2">Sign up</h5>
+              <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+              <form>
+                <!-- Name input -->
+                <div class="form-outline mb-4">
+                  <input type="text" id="name2" class="form-control" />
+                  <label class="form-label" for="name2">Name</label>
+                </div>
+
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <input type="email" id="email2" class="form-control" />
+                  <label class="form-label" for="email2">Email address</label>
+                </div>
+
+                <!-- password input -->
+                <div class="form-outline mb-4">
+                  <input type="password" id="password2" class="form-control" />
+                  <label class="form-label" for="password2">Password</label>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+
+      <!-- /// modal SIGN IN \\\ -->
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog d-flex justify-content-center">
+          <div class="modal-content w-75">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel1">Sign in</h5>
+              <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+              <form>
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <input type="email" id="email1" class="form-control" />
+                  <label class="form-label" for="email1">Email address</label>
+                </div>
+
+                <!-- password input -->
+                <div class="form-outline mb-4">
+                  <input type="password" id="password1" class="form-control" />
+                  <label class="form-label" for="password1">Password</label>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
     <!-- The scripts go here -->
-    <script src="{% static 'js/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <script>appendCard(0, 8)</script>
   </body>
 </html>

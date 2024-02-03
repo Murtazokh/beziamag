@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<h2>{{ about.title }}</h2>
-<div>{{ about.content }}</div>
+{% include 'sections/header.html' %}
+<!-- MAIN CONTENT -->
+<main class="main-content">
+    <div class="about-page">
+      <div class="about-page__container container">
+  <div class="about-page__content">
+      <h2>{{ about.title }}</h2>
+      <p>{{ about.content }}</p>
+  </div>
+  <img src="{% static 'img/pen.png'%}" alt="pen" class="about-page__img">
+      </div>
+  
+      <div class="container">
+        <img class="about-page__bg" src="{% static 'img/about-bg.png'%}">
+      </div>
+    </div>
+  </main>
 {% endblock %}

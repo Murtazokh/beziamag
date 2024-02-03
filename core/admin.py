@@ -3,8 +3,8 @@ from .models import About, Testimonial, Contact
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'subject')
-    search_fields = ('name', 'email', 'subject')
+    list_display = ('name', 'email', 'phone_number')
+    search_fields = ('name', 'email', 'phone_number')
 
 @admin.register(About)
 class AboutAdmin(admin.ModelAdmin):

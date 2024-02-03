@@ -1,16 +1,40 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load beziamag_tags %}
 {% block content %}
-    <div id="product-list-app" class="container">
-        <!-- This is where your product list will go -->
-        <h1>Products</h1>
-        <div class="products-list">
-            {% for product in products %}
-                <div class="product">
-                    <h2><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h2>
-                    <p>{{ product.description }}</p>
-                    <!-- More product details can be added here -->
-                </div>
-            {% endfor %}
-        </div>
+{% include 'sections/header.html' %}
+<main class="main-content">
+    <div class="container">
+     <div class="products__inner">
+  <h1>Our Products</h1>
+  
+  <!-- Search Form -->
+  <form method="get" action="{% url 'products:product_list' %}">
+    <input type="text" name="q" placeholder="Search products..." value="{{ request.GET.q }}">
+    <button type="submit">Search</button>
+  </form>
+  
+  <!-- Category Links -->
+  <div class="categories">
+    {% for category in categories %}
+    <a href="{% url 'products:product_list_by_category' category.slug %}">{{ category.name }}</a>
+    <br>
+    {% endfor %}
+  </div>
+
+  <ul class="products__list">
+    {% for product in products %}
+    <li class="products__list-item product-card">
+      <img class="product-card__img" src="{% get_image_url product.image %}" alt="Product Image">
+      <div class="product-card__info">
+        <h3 class="product-card__title">{{ product.name }}</h3>
+        <span class="product-card__price">{{ product.price }}</span>
+        <p>{{ product.description }}</p>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+     </div>
     </div>
+</main>
 {% endblock %}
